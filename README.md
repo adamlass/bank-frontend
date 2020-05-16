@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Assignment 5 - Frontend Test
+### The well-tested bank
+___
 
-## Available Scripts
+### Group members:
 
-In the project directory, you can run:
+- Adam Lass
+- Rasmus Helsgaun
+- Pernille Lørup
 
-### `yarn start`
+____ 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Frontend Test 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+In this assignment we were to create a simple front-end for our bank. We then had to create tests for a chosen browser in our preferred language using WebDriver. 
 
-### `yarn test`
+We made the decision to use Selenium Webdriver alongside with Mocha as a test framework. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Link to REST API / Backend](https://github.com/adamlass/test-bank)  
 
-### `yarn build`
+___
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* To start the project run an ```npm install``` on both applications. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For the backend you have to install firefox and geckodriver from [here](https://www.npmjs.com/package/selenium-webdriver) and have it in your PATH so that your Selenium can use it. 
 
-### `yarn eject`
+* Then run an ```npm start``` on the backend and subsequently run the frontend and say ```'y'``` to running it on another port. From here you can run the test by running ```npm run test```  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* If you don't have time to run the project, you can see the results of the tests in the following screenshot or by reading the test code from [here](https://github.com/adamlass/test-bank/blob/master/test/restTest.js). There is also a desciption of the different tests below the image.  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](./images/testResults.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+**1) Should fetch the accounts of CPR: 0113973313:**  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* This test finds the input field by giving the webdriver the id. It then pastes a given CPR number and fetches the accountnumbers of the two returned accounts.  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+**2) Should transfer 500 from ACC1 to ACC2:**   
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* This test finds the input field by giving the webdriver the id. It then pastes a given CPR number and finds the transfer button on the first account by the element-id. From here it finds the account number input field and pastes a given account number. Then it finds the amount input field and clears it. The amount is now pasted in the input field and the transfer is submitted. The balance of each account is being compared before and after the transfer to make sure it was successful. 
 
-### Analyzing the Bundle Size
+**3) Should fail trying to fetch an unknown CPR-number:**  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+* This test finds the input field by giving the webdriver the id. It then pastes a string with the same length as a CPR-number. Because the CPR-number is unknown an error message is shown. We then do a check on this error message to check that the error is what we expect.  
 
-### Making a Progressive Web App
+**4) Should fail trying to transfer to an unknown account:**  
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* This test does the same as the transfer test above until an account number is being pasted. We enter an unknown number which will cause an error message. We do a check on this error message to check that the error is what we expect. 
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
