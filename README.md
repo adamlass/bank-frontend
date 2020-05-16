@@ -16,7 +16,8 @@ In this assignment we were to create a simple front-end for our bank. We then ha
 
 We made the decision to use Selenium Webdriver alongside with Mocha as a test framework. 
 
-[Link to REST API / Backend](https://github.com/adamlass/test-bank)  
+[Link to REST API / Backend](https://github.com/adamlass/test-bank)   
+[Link to Test-code](https://github.com/adamlass/test-bank/blob/master/test/restTest.js)  
 
 ___
 
