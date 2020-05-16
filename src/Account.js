@@ -90,8 +90,8 @@ class Account extends Component {
                                         <img src={pig} style={{ marginLeft: "-88px", height: "150px", marginTop: "-74px" }} />
                                     </Col>
                                     <Col xs={9}>
-                                        <h6>{number}</h6>
-                                        <h3 style={{ color: balanceColor }}>{balance.toLocaleString(getUserLocale())} $</h3>
+                                        <h6 id={number}> {number}</h6>
+                                        <h3 id={`bal-${number}`} style={{ color: balanceColor }}>{balance.toLocaleString(getUserLocale())} $</h3>
 
 
                                     </Col>

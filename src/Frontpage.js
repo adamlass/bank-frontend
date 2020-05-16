@@ -72,7 +72,7 @@ class Frontpage extends Component {
 
                     <Row className="mt-3 text-center">
                         <Col xs={12}>
-                            <h4>{this.state.status}</h4>
+                            <h4 id={"errorFetch"}>{this.state.status}</h4>
                         </Col>
                         <Col style={{ margin: "auto", maxWidth: 600 }}>
                             {
